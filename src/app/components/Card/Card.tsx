@@ -28,7 +28,9 @@ export default function Card({
         height={100}
       />
       <span className={classes.bookInfo}>
-        <h2>{content.title}</h2>
+        <h2 className={classes.titleText}>
+          {content.title}
+        </h2>
         <p>{content.author}</p>
         {cardOpen ? (
           <p className={classes.descriptionText}>

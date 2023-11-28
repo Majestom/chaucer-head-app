@@ -25,9 +25,14 @@ export const card = style({
 export const bookInfo = style({
   display: "flex",
   flexDirection: "column",
+  alignItems: "flex-start",
   justifyContent: "flex-start",
   gap: 10,
   flex: 1,
+});
+
+export const titleText = style({
+  textAlign: "left",
 });
 
 export const descriptionText = style({
