@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import * as classes from "./Desktop.css";
+import Menu from "../Menu/Menu";
 
 const data = [
   {
@@ -24,6 +25,7 @@ export default function Desktop() {
       {data.map((item) => (
         <Card key={item.id} content={item} />
       ))}
+      <Menu />
     </div>
   );
 }
