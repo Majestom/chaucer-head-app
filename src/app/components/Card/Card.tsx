@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import * as classes from "./Card.css";
 
@@ -14,8 +15,12 @@ export default function Card({
 }: {
   content: CardContentType;
 }) {
+  const [cardOpen, setCardOpen] = useState(false);
   return (
-    <div className={classes.card}>
+    <button
+      className={classes.card}
+      onClick={() => setCardOpen(!cardOpen)}
+    >
       <Image
         src="/images/1.png"
         alt={content.title}
@@ -25,10 +30,12 @@ export default function Card({
       <span className={classes.bookInfo}>
         <h2>{content.title}</h2>
         <p>{content.author}</p>
-        <p className={classes.descriptionText}>
-          {content.description}
-        </p>
+        {cardOpen ? (
+          <p className={classes.descriptionText}>
+            {content.description}
+          </p>
+        ) : null}
       </span>
-    </div>
+    </button>
   );
 }

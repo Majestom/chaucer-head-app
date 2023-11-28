@@ -1,6 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
 export const card = style({
+  background: "none",
+  border: "none",
   display: "flex",
   flexDirection: "row",
   justifyContent: "flex-start",
@@ -15,7 +17,7 @@ export const card = style({
     backgroundColor: "#AB9A6F",
   },
   ":active": {
-    backgroundColor: "#7A6E4E",
+    // backgroundColor: "#7A6E4E",
     boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.75)",
   },
 });
