@@ -35,6 +35,10 @@ export const titleText = style({
   textAlign: "left",
 });
 
+export const authorText = style({
+  textAlign: "left",
+});
+
 export const descriptionText = style({
   font: "Roboto",
   fontSize: 12,

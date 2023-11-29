@@ -22,7 +22,7 @@ export default function Card({
       onClick={() => setCardOpen(!cardOpen)}
     >
       <Image
-        src="/images/1.png"
+        src={`/images/${content.id}.png`}
         alt={content.title}
         width={100}
         height={100}
@@ -31,7 +31,9 @@ export default function Card({
         <h2 className={classes.titleText}>
           {content.title}
         </h2>
-        <p>{content.author}</p>
+        <p className={classes.authorText}>
+          {content.author}
+        </p>
         {cardOpen ? (
           <p className={classes.descriptionText}>
             {content.description}
