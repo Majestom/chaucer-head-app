@@ -2,39 +2,42 @@ import React from "react";
 import Image from "next/image";
 import * as classes from "./Button.css";
 
-export type ButtonProps = {
+type ButtonProps = {
   label: string;
   className: keyof typeof classes;
+  icon: string;
 };
 
-type MenuButtonsType = {
-  label: string;
-  styleClass: keyof typeof classes;
-};
-
-export const menuButtons: MenuButtonsType[] = [
+export const menuButtons: ButtonProps[] = [
   {
     label: "Menu",
-    styleClass: "menuButton",
+    className: "menuButton",
+    icon: "/icons/menu.svg",
   },
   {
     label: "Add",
-    styleClass: "addButton",
+    className: "addButton",
+    icon: "/icons/add.svg",
   },
   {
     label: "Filter",
-    styleClass: "filterButton",
+    className: "filterButton",
+    icon: "/icons/filter.svg",
   },
 ];
 
-export function Button({ label, className }: ButtonProps) {
+export function Button({
+  label,
+  className,
+  icon,
+}: ButtonProps) {
   return (
     <button
       className={`${classes.button} ${classes[className]}`}
     >
       <div className={classes.buttonLayout}>
         <Image
-          src={"/icons/menu.svg"}
+          src={icon}
           alt={label}
           width={20}
           height={20}

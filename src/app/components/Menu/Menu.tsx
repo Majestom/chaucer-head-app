@@ -5,11 +5,12 @@ import * as classes from "./Menu.css";
 export default function Menu() {
   return (
     <menu className={classes.menu}>
-      {menuButtons.map(({ label, styleClass }) => (
+      {menuButtons.map(({ label, className, icon }) => (
         <Button
           key={label}
           label={label}
-          className={styleClass}
+          className={className}
+          icon={icon}
         />
       ))}
     </menu>
