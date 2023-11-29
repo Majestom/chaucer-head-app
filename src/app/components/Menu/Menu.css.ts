@@ -12,3 +12,11 @@ export const menu = style({
   backgroundColor: "#97581F",
   boxShadow: "0px 0px 10px 8px rgba(0,0,0,0.75)",
 });
+
+// export const menuButton = style({
+//   background: "#8E1EE7",
+// });
+
+// export const addButton = style({});
+
+// export const filterButton = style({});
