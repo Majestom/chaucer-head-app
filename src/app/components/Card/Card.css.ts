@@ -15,6 +15,7 @@ export const card = style({
   boxShadow: "10px 10px 10px 0px rgba(0,0,0,0.75)",
   ":hover": {
     backgroundColor: "#AB9A6F",
+    boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.75)",
   },
   ":active": {
     // backgroundColor: "#7A6E4E",
