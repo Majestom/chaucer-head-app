@@ -16,6 +16,7 @@ export const buttonLayout = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  gap: 5,
 });
 
 export const menuButton = style({
@@ -28,4 +29,9 @@ export const addButton = style({
 
 export const filterButton = style({
   background: "#E31EE7",
+});
+
+export const label = style({
+  fontSize: 20,
+  color: "white",
 });

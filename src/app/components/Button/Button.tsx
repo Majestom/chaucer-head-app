@@ -39,10 +39,10 @@ export function Button({
         <Image
           src={icon}
           alt={label}
-          width={20}
-          height={20}
+          width={50}
+          height={50}
         />
-        <label>{label}</label>
+        <label className={classes.label}>{label}</label>
       </div>
     </button>
   );
