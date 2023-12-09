@@ -8,24 +8,6 @@ type ButtonProps = {
   icon: string;
 };
 
-export const menuButtons: ButtonProps[] = [
-  {
-    label: "Menu",
-    className: "menuButton",
-    icon: "/icons/menu.svg",
-  },
-  {
-    label: "Add",
-    className: "addButton",
-    icon: "/icons/add.svg",
-  },
-  {
-    label: "Filter",
-    className: "filterButton",
-    icon: "/icons/filter.svg",
-  },
-];
-
 export function Button({
   label,
   className,

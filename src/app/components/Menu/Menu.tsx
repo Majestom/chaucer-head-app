@@ -1,18 +1,25 @@
 import React from "react";
-import { Button, menuButtons } from "../Button/Button";
+import { Button } from "../Button/Button";
 import * as classes from "./Menu.css";
 
 export default function Menu() {
   return (
     <menu className={classes.menu}>
-      {menuButtons.map(({ label, className, icon }) => (
-        <Button
-          key={label}
-          label={label}
-          className={className}
-          icon={icon}
-        />
-      ))}
+      <Button
+        label={"Menu"}
+        className={"menuButton"}
+        icon={"/icons/menu.svg"}
+      />
+      <Button
+        label={"Add"}
+        className={"addButton"}
+        icon={"/icons/add.svg"}
+      />
+      <Button
+        label={"Filter"}
+        className={"filterButton"}
+        icon={"/icons/filter.svg"}
+      />
     </menu>
   );
 }
