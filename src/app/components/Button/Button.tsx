@@ -6,16 +6,19 @@ type ButtonProps = {
   label: string;
   className: keyof typeof classes;
   icon: string;
+  onClick?: () => void;
 };
 
 export function Button({
   label,
   className,
   icon,
+  onClick,
 }: ButtonProps) {
   return (
     <button
       className={`${classes.button} ${classes[className]}`}
+      onClick={onClick}
     >
       <div className={classes.buttonLayout}>
         <Image

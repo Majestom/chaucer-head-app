@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Card from "../Card/Card";
 import Menu from "../Menu/Menu";
@@ -28,13 +29,19 @@ const data = [
 ];
 
 export default function Desktop() {
+  const [menuOpen, setMenuOpen] = React.useState(true);
   return (
     <div className={classes.desktop}>
       {data.map((item) => (
         <Card key={item.id} content={item} />
       ))}
-      <Menu />
-      <FilterMenu />
+      {menuOpen ? (
+        <Menu setMenuOpen={() => setMenuOpen(!menuOpen)} />
+      ) : (
+        <FilterMenu
+          setMenuOpen={() => setMenuOpen(!menuOpen)}
+        />
+      )}
     </div>
   );
 }

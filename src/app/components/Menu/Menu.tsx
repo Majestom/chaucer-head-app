@@ -2,7 +2,11 @@ import React from "react";
 import { Button } from "../Button/Button";
 import * as classes from "./Menu.css";
 
-export default function Menu() {
+export default function Menu({
+  setMenuOpen,
+}: {
+  setMenuOpen: () => void;
+}) {
   return (
     <menu className={classes.menu}>
       <Button
@@ -19,6 +23,7 @@ export default function Menu() {
         label={"Filter"}
         className={"filterButton"}
         icon={"/icons/filter.svg"}
+        onClick={setMenuOpen}
       />
     </menu>
   );
