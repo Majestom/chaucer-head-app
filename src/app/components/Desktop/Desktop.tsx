@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "../Card/Card";
-import * as classes from "./Desktop.css";
 import Menu from "../Menu/Menu";
+import FilterMenu from "../FilterMenu/FilterMenu";
+import * as classes from "./Desktop.css";
 
 const data = [
   {
@@ -33,6 +34,7 @@ export default function Desktop() {
         <Card key={item.id} content={item} />
       ))}
       <Menu />
+      <FilterMenu />
     </div>
   );
 }

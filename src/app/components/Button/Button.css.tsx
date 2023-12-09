@@ -31,6 +31,10 @@ export const filterButton = style({
   background: "#E31EE7",
 });
 
+export const backButton = style({
+  background: "#E78A1E",
+});
+
 export const label = style({
   fontSize: 20,
   color: "white",
