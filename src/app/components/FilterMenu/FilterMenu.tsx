@@ -9,12 +9,28 @@ export default function FilterMenu({
 }) {
   return (
     <menu className={classes.menu}>
-      <Button
-        label={"Back"}
-        className={"backButton"}
-        icon={"/icons/back.svg"}
-        onClick={setMenuOpen}
-      />
+      <form>
+        <input
+          type="text"
+          className={classes.textInput}
+        ></input>
+      </form>
+      <div>
+        <label className={classes.switchLabel}>
+          <input
+            type="checkbox"
+            checked={true}
+            className={classes.switchInput}
+          ></input>
+          <span className={classes.sliderRound}></span>
+        </label>
+        <Button
+          label={"Back"}
+          className={"backButton"}
+          icon={"/icons/back.svg"}
+          onClick={setMenuOpen}
+        />
+      </div>
     </menu>
   );
 }
