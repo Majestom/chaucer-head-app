@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../Button/Button";
 import * as classes from "./FilterMenu.css";
 
@@ -7,23 +7,34 @@ export default function FilterMenu({
 }: {
   setMenuOpen: () => void;
 }) {
+  const [showOffsale, setShowOffsale] = useState(true);
   return (
     <menu className={classes.menu}>
-      <form>
-        <input
-          type="text"
-          className={classes.textInput}
-        ></input>
-      </form>
+      <input
+        type="text"
+        className={classes.textInput}
+      ></input>
       <div>
-        <label className={classes.switchLabel}>
+        {/* <label className={classes.switchLabel}>
           <input
             type="checkbox"
             checked={true}
             className={classes.switchInput}
           ></input>
           <span className={classes.sliderRound}></span>
-        </label>
+        </label> */}
+        <button
+          className={classes.toggleSwitch}
+          onClick={() => setShowOffsale(!showOffsale)}
+        >
+          <span
+            className={
+              showOffsale
+                ? classes.sliderOpen
+                : classes.sliderClosed
+            }
+          ></span>
+        </button>
         <Button
           label={"Back"}
           className={"backButton"}
