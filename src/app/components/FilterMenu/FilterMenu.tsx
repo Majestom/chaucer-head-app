@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../Button/Button";
+import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import * as classes from "./FilterMenu.css";
 
 export default function FilterMenu({
@@ -8,33 +9,26 @@ export default function FilterMenu({
   setMenuOpen: () => void;
 }) {
   const [showOffsale, setShowOffsale] = useState(true);
+  const [showDrafts, setShowDrafts] = useState(true);
   return (
     <menu className={classes.menu}>
       <input
         type="text"
         className={classes.textInput}
       ></input>
-      <div>
-        {/* <label className={classes.switchLabel}>
-          <input
-            type="checkbox"
-            checked={true}
-            className={classes.switchInput}
-          ></input>
-          <span className={classes.sliderRound}></span>
-        </label> */}
-        <button
-          className={classes.toggleSwitch}
-          onClick={() => setShowOffsale(!showOffsale)}
-        >
-          <span
-            className={
-              showOffsale
-                ? classes.sliderOpen
-                : classes.sliderClosed
-            }
-          ></span>
-        </button>
+      <div className={classes.controls}>
+        <div className={classes.toggles}>
+          <ToggleSwitch
+            showLeft={showOffsale}
+            setShowLeft={setShowOffsale}
+            toggleLabel={"Show Offsale?"}
+          />
+          <ToggleSwitch
+            showLeft={showDrafts}
+            setShowLeft={setShowDrafts}
+            toggleLabel={"Show Drafts?"}
+          />
+        </div>
         <Button
           label={"Back"}
           className={"backButton"}
