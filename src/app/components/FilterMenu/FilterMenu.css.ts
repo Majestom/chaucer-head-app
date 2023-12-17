@@ -18,12 +18,13 @@ export const menu = style({
 export const textInput = style({
   height: 40,
   padding: 10,
-  backgroundColor: "#fff",
+  backgroundColor: "#E8D4A2",
   color: "#000",
   borderRadius: 5,
-  border: "none",
+  border: "1px solid #000",
   margin: 10,
   fontSize: 16,
+  boxShadow: "inset 0px 0px 4px rgba(0,0,0,1)",
 });
 
 export const controls = style({
