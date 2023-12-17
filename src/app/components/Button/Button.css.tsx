@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 export const button = style({
-  width: "100%",
+  flexGrow: 1,
   border: "none",
   borderRadius: 10,
   padding: 10,
