@@ -44,9 +44,6 @@ export default function Desktop() {
               .includes(textFilter.toLowerCase()) ||
             item.author
               .toLowerCase()
-              .includes(textFilter.toLowerCase()) ||
-            item.description
-              .toLowerCase()
               .includes(textFilter.toLowerCase())
           );
         })
