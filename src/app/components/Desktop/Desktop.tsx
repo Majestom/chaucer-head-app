@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Card from "../Card/Card";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
@@ -29,17 +29,37 @@ const data = [
 ];
 
 export default function Desktop() {
-  const [menuOpen, setMenuOpen] = React.useState(true);
+  const [menuOpen, setMenuOpen] = useState(true);
+  const [textFilter, setTextFilter] = useState("");
   return (
     <div className={classes.desktop}>
-      {data.map((item) => (
-        <Card key={item.id} content={item} />
-      ))}
+      {data
+        .filter((item) => {
+          if (textFilter === "") {
+            return true;
+          }
+          return (
+            item.title
+              .toLowerCase()
+              .includes(textFilter.toLowerCase()) ||
+            item.author
+              .toLowerCase()
+              .includes(textFilter.toLowerCase()) ||
+            item.description
+              .toLowerCase()
+              .includes(textFilter.toLowerCase())
+          );
+        })
+        .map((item) => (
+          <Card key={item.id} content={item} />
+        ))}
       {menuOpen ? (
         <Menu setMenuOpen={() => setMenuOpen(!menuOpen)} />
       ) : (
         <FilterMenu
           setMenuOpen={() => setMenuOpen(!menuOpen)}
+          textFilter={textFilter}
+          setTextFilter={setTextFilter}
         />
       )}
     </div>

@@ -5,16 +5,23 @@ import * as classes from "./FilterMenu.css";
 
 export default function FilterMenu({
   setMenuOpen,
+  textFilter,
+  setTextFilter,
 }: {
   setMenuOpen: () => void;
+  textFilter: string;
+  setTextFilter: (text: string) => void;
 }) {
   const [showOffsale, setShowOffsale] = useState(true);
   const [showDrafts, setShowDrafts] = useState(true);
   return (
     <menu className={classes.menu}>
       <input
+        id="textFilter"
         type="text"
         className={classes.textInput}
+        value={textFilter}
+        onChange={(e) => setTextFilter(e.target.value)}
       ></input>
       <div className={classes.controls}>
         <div className={classes.toggles}>
