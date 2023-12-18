@@ -48,7 +48,11 @@ export default function Desktop() {
           );
         })
         .map((item) => (
-          <Card key={item.id} content={item} />
+          <Card
+            key={item.id}
+            content={item}
+            textFilter={textFilter}
+          />
         ))}
       {menuOpen ? (
         <Menu setMenuOpen={() => setMenuOpen(!menuOpen)} />

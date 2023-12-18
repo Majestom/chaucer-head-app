@@ -47,3 +47,7 @@ export const descriptionText = style({
   maxHeight: 100,
   overflow: "auto",
 });
+
+export const filteredText = style({
+  backgroundColor: "yellow",
+});

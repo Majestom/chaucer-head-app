@@ -12,10 +12,33 @@ type CardContentType = {
 
 export default function Card({
   content,
+  textFilter,
 }: {
   content: CardContentType;
+  textFilter: string;
 }) {
   const [cardOpen, setCardOpen] = useState(false);
+
+  const highlightText = (text: string) => {
+    const parts = text.split(
+      new RegExp(`(${textFilter})`, "gi")
+    );
+    return (
+      <span>
+        {parts.map((part, i) =>
+          part.toLowerCase() ===
+          textFilter.toLowerCase() ? (
+            <span key={i} className={classes.filteredText}>
+              {part}
+            </span>
+          ) : (
+            <span key={i}>{part}</span>
+          )
+        )}
+      </span>
+    );
+  };
+
   return (
     <button
       className={classes.card}
@@ -29,10 +52,12 @@ export default function Card({
       />
       <span className={classes.bookInfo}>
         <h2 className={classes.titleText}>
-          {content.title}
+          {highlightText(content.title)}
         </h2>
         <p className={classes.authorText}>
-          {content.author}
+          {content.author
+            ? highlightText(content.author)
+            : null}
         </p>
         {cardOpen ? (
           <p className={classes.descriptionText}>
