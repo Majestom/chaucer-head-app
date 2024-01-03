@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
 import * as classes from "./Desktop.css";
+import EditCardMenu from "../EditCardMenu/EditCardMenu";
 
 const data = [
   {
@@ -30,6 +31,7 @@ const data = [
 
 export default function Desktop() {
   const [menuOpen, setMenuOpen] = useState(true);
+  const [editMenuOpen, setEditMenuOpen] = useState(false);
   const [textFilter, setTextFilter] = useState("");
   return (
     <div className={classes.desktop}>
@@ -55,7 +57,12 @@ export default function Desktop() {
           />
         ))}
       {menuOpen ? (
-        <Menu setMenuOpen={() => setMenuOpen(!menuOpen)} />
+        <Menu
+          setMenuOpen={() => setMenuOpen(!menuOpen)}
+          setEditMenuOpen={() =>
+            setEditMenuOpen(!editMenuOpen)
+          }
+        />
       ) : (
         <FilterMenu
           setMenuOpen={() => setMenuOpen(!menuOpen)}
@@ -63,6 +70,13 @@ export default function Desktop() {
           setTextFilter={setTextFilter}
         />
       )}
+      {editMenuOpen ? (
+        <EditCardMenu
+          setEditMenuOpen={() =>
+            setEditMenuOpen(!editMenuOpen)
+          }
+        />
+      ) : null}
     </div>
   );
 }

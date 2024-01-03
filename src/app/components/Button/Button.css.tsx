@@ -35,6 +35,10 @@ export const backButton = style({
   background: "#E78A1E",
 });
 
+export const imageButton = style({
+  background: "#E3E71E",
+});
+
 export const label = style({
   fontSize: 20,
   color: "white",
