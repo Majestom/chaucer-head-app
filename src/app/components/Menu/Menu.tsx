@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "../Button/Button";
 import * as classes from "./Menu.css";
 
 export default function Menu({
-  setMenuOpen,
+  setCurrentMenu,
 }: {
-  setMenuOpen: () => void;
+  setCurrentMenu: Dispatch<SetStateAction<string>>;
 }) {
   return (
     <menu className={classes.menu}>
@@ -18,12 +18,13 @@ export default function Menu({
         label={"Add"}
         className={"addButton"}
         icon={"/icons/add.svg"}
+        onClick={() => setCurrentMenu("add-menu")}
       />
       <Button
         label={"Filter"}
         className={"filterButton"}
         icon={"/icons/filter.svg"}
-        onClick={setMenuOpen}
+        onClick={() => setCurrentMenu("filter-menu")}
       />
     </menu>
   );

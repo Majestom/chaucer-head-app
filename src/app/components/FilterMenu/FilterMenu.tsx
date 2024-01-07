@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useState,
+} from "react";
 import { Button } from "../Button/Button";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import * as classes from "./FilterMenu.css";
 
 export default function FilterMenu({
-  setMenuOpen,
+  setCurrentMenu,
   textFilter,
   setTextFilter,
 }: {
-  setMenuOpen: () => void;
+  setCurrentMenu: Dispatch<SetStateAction<string>>;
   textFilter: string;
   setTextFilter: (text: string) => void;
 }) {
@@ -40,7 +44,7 @@ export default function FilterMenu({
           label={"Back"}
           className={"backButton"}
           icon={"/icons/back.svg"}
-          onClick={setMenuOpen}
+          onClick={() => setCurrentMenu("main-menu")}
         />
       </div>
     </menu>

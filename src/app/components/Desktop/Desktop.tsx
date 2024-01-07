@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "../Card/Card";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
+import EditCardMenu from "../EditCardMenu/EditCardMenu";
 import * as classes from "./Desktop.css";
 
 const data = [
@@ -29,8 +30,29 @@ const data = [
 ];
 
 export default function Desktop() {
-  const [menuOpen, setMenuOpen] = useState(true);
   const [textFilter, setTextFilter] = useState("");
+  const [currentMenu, setCurrentMenu] =
+    useState("main-menu"); // main-menu, filter-menu, add-menu
+
+  const renderCurrentMenu = () => {
+    switch (currentMenu) {
+      case "main-menu":
+        return <Menu setCurrentMenu={setCurrentMenu} />;
+      case "filter-menu":
+        return (
+          <FilterMenu
+            setCurrentMenu={setCurrentMenu}
+            textFilter={textFilter}
+            setTextFilter={setTextFilter}
+          />
+        );
+      case "add-menu":
+        return (
+          <EditCardMenu setCurrentMenu={setCurrentMenu} />
+        );
+    }
+  };
+
   return (
     <div className={classes.desktop}>
       {data
@@ -54,15 +76,7 @@ export default function Desktop() {
             textFilter={textFilter}
           />
         ))}
-      {menuOpen ? (
-        <Menu setMenuOpen={() => setMenuOpen(!menuOpen)} />
-      ) : (
-        <FilterMenu
-          setMenuOpen={() => setMenuOpen(!menuOpen)}
-          textFilter={textFilter}
-          setTextFilter={setTextFilter}
-        />
-      )}
+      {renderCurrentMenu()}
     </div>
   );
 }

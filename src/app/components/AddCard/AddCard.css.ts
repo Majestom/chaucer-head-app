@@ -23,31 +23,31 @@ export const card = style({
   },
 });
 
-export const bookInfo = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
-  justifyContent: "flex-start",
-  gap: 10,
-  flex: 1,
-});
+// export const bookInfo = style({
+//   display: "flex",
+//   flexDirection: "column",
+//   alignItems: "flex-start",
+//   justifyContent: "flex-start",
+//   gap: 10,
+//   flex: 1,
+// });
 
-export const titleText = style({
-  textAlign: "left",
-});
+// export const titleText = style({
+//   textAlign: "left",
+// });
 
-export const authorText = style({
-  textAlign: "left",
-});
+// export const authorText = style({
+//   textAlign: "left",
+// });
 
-export const descriptionText = style({
-  font: "Roboto",
-  fontSize: 12,
-  height: 100,
-  maxHeight: 100,
-  overflow: "auto",
-});
+// export const descriptionText = style({
+//   font: "Roboto",
+//   fontSize: 12,
+//   height: 100,
+//   maxHeight: 100,
+//   overflow: "auto",
+// });
 
-export const filteredText = style({
-  backgroundColor: "yellow",
-});
+// export const filteredText = style({
+//   backgroundColor: "yellow",
+// });
