@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Card from "../Card/Card";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
 import EditCardMenu from "../EditCardMenu/EditCardMenu";
+import CardList from "../CardList/CardList";
+import AddCard from "../AddCard/AddCard";
 import * as classes from "./Desktop.css";
 
 const data = [
@@ -53,29 +54,24 @@ export default function Desktop() {
     }
   };
 
+  const renderDesktopContent = () => {
+    switch (currentMenu) {
+      case "main-menu":
+        return (
+          <CardList data={data} textFilter={textFilter} />
+        );
+      case "filter-menu":
+        return (
+          <CardList data={data} textFilter={textFilter} />
+        );
+      case "add-menu":
+        return <AddCard />;
+    }
+  };
+
   return (
     <div className={classes.desktop}>
-      {data
-        .filter((item) => {
-          if (textFilter === "") {
-            return true;
-          }
-          return (
-            item.title
-              .toLowerCase()
-              .includes(textFilter.toLowerCase()) ||
-            item.author
-              .toLowerCase()
-              .includes(textFilter.toLowerCase())
-          );
-        })
-        .map((item) => (
-          <Card
-            key={item.id}
-            content={item}
-            textFilter={textFilter}
-          />
-        ))}
+      {renderDesktopContent()}
       {renderCurrentMenu()}
     </div>
   );
