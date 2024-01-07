@@ -7,6 +7,7 @@ export default function AddCard() {
       title: "",
       author: "",
       description: "",
+      price: "",
     },
     onSubmit: async ({ value }) => {
       // Do something with form data
@@ -28,45 +29,77 @@ export default function AddCard() {
           <div className={classes.inputHolder}>
             <form.Field name="title">
               {(field) => (
-                <input
-                  className={classes.formField}
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) =>
-                    field.handleChange(e.target.value)
-                  }
-                />
+                <>
+                  <label htmlFor={field.name}>Title</label>
+                  <input
+                    className={classes.formField}
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) =>
+                      field.handleChange(e.target.value)
+                    }
+                  />
+                </>
               )}
             </form.Field>
             <form.Field name="author">
               {(field) => (
-                <input
-                  className={classes.formField}
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) =>
-                    field.handleChange(e.target.value)
-                  }
-                />
+                <>
+                  <label htmlFor={field.name}>Author</label>
+                  <input
+                    className={classes.formField}
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) =>
+                      field.handleChange(e.target.value)
+                    }
+                  />
+                </>
               )}
             </form.Field>
             <form.Field name="description">
               {(field) => (
-                <input
-                  className={classes.formField}
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) =>
-                    field.handleChange(e.target.value)
-                  }
-                />
+                <>
+                  <label htmlFor={field.name}>
+                    Description
+                  </label>
+                  <textarea
+                    className={classes.formField}
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) =>
+                      field.handleChange(e.target.value)
+                    }
+                  />
+                </>
+              )}
+            </form.Field>
+            <form.Field name="price">
+              {(field) => (
+                <>
+                  <label htmlFor={field.name}>Price</label>
+                  <input
+                    className={classes.formField}
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) =>
+                      field.handleChange(e.target.value)
+                    }
+                  />
+                </>
               )}
             </form.Field>
           </div>
-          <button type="submit">Submit</button>
+          <button
+            className={classes.submitButton}
+            type="submit"
+          >
+            Submit
+          </button>
         </form>
       </form.Provider>
     </div>
