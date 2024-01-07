@@ -5,7 +5,7 @@ export const card = style({
   border: "none",
   display: "flex",
   flexDirection: "row",
-  justifyContent: "flex-start",
+  justifyContent: "center",
   gap: 20,
   padding: 20,
   margin: 20,
@@ -21,6 +21,31 @@ export const card = style({
     // backgroundColor: "#7A6E4E",
     boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.75)",
   },
+});
+
+export const form = style({
+  display: "flex",
+  flexDirection: "column",
+  flexBasis: "100%",
+});
+
+export const inputHolder = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  alignItems: "stretch",
+  gap: 10,
+  flex: 1,
+  padding: 10,
+  margin: 10,
+});
+
+export const formField = style({
+  padding: 10,
+  background: "white",
+  color: "black",
+  border: "none",
+  borderRadius: 10,
 });
 
 // export const bookInfo = style({

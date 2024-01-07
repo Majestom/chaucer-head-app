@@ -4,7 +4,9 @@ import * as classes from "./AddCard.css";
 export default function AddCard() {
   const form = useForm({
     defaultValues: {
-      fullName: "",
+      title: "",
+      author: "",
+      description: "",
     },
     onSubmit: async ({ value }) => {
       // Do something with form data
@@ -16,16 +18,44 @@ export default function AddCard() {
     <div className={classes.card}>
       <form.Provider>
         <form
+          className={classes.form}
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
             void form.handleSubmit();
           }}
         >
-          <div>
-            <form.Field name="fullName">
+          <div className={classes.inputHolder}>
+            <form.Field name="title">
               {(field) => (
                 <input
+                  className={classes.formField}
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) =>
+                    field.handleChange(e.target.value)
+                  }
+                />
+              )}
+            </form.Field>
+            <form.Field name="author">
+              {(field) => (
+                <input
+                  className={classes.formField}
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) =>
+                    field.handleChange(e.target.value)
+                  }
+                />
+              )}
+            </form.Field>
+            <form.Field name="description">
+              {(field) => (
+                <input
+                  className={classes.formField}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}
