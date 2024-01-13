@@ -15,7 +15,7 @@ export default function Menu({
         icon={"/icons/menu.svg"}
       />
       <Button
-        label={"Add"}
+        label={"Add book"}
         className={"addButton"}
         icon={"/icons/add.svg"}
         onClick={() => setCurrentMenu("add-menu")}

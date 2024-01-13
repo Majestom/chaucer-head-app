@@ -15,7 +15,7 @@ export default function EditCardMenu({
         icon={"/icons/menu.svg"}
       />
       <Button
-        label={"Add"}
+        label={"Put on sale"}
         className={"addButton"}
         icon={"/icons/add.svg"}
         onClick={() => setCurrentMenu("add-menu")}

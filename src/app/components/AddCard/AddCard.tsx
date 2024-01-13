@@ -94,12 +94,14 @@ export default function AddCard() {
               )}
             </form.Field>
           </div>
-          <button
-            className={classes.submitButton}
-            type="submit"
-          >
-            Submit
-          </button>
+          <div className={classes.buttonHolder}>
+            <button
+              className={classes.submitButton}
+              type="submit"
+            >
+              Send To Database
+            </button>
+          </div>
         </form>
       </form.Provider>
     </div>
