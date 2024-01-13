@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-form": "^0.13.1",
     "@vanilla-extract/css": "^1.14.0",
     "next": "14.0.3",
     "react": "^18",

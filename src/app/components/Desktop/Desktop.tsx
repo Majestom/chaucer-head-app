@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Card from "../Card/Card";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
+import EditCardMenu from "../EditCardMenu/EditCardMenu";
+import CardList from "../CardList/CardList";
+import AddCard from "../AddCard/AddCard";
 import * as classes from "./Desktop.css";
 import EditCardMenu from "../EditCardMenu/EditCardMenu";
 
@@ -30,53 +32,48 @@ const data = [
 ];
 
 export default function Desktop() {
-  const [menuOpen, setMenuOpen] = useState(true);
-  const [editMenuOpen, setEditMenuOpen] = useState(false);
   const [textFilter, setTextFilter] = useState("");
+  const [currentMenu, setCurrentMenu] =
+    useState("main-menu"); // main-menu, filter-menu, add-menu
+
+  const renderCurrentMenu = () => {
+    switch (currentMenu) {
+      case "main-menu":
+        return <Menu setCurrentMenu={setCurrentMenu} />;
+      case "filter-menu":
+        return (
+          <FilterMenu
+            setCurrentMenu={setCurrentMenu}
+            textFilter={textFilter}
+            setTextFilter={setTextFilter}
+          />
+        );
+      case "add-menu":
+        return (
+          <EditCardMenu setCurrentMenu={setCurrentMenu} />
+        );
+    }
+  };
+
+  const renderDesktopContent = () => {
+    switch (currentMenu) {
+      case "main-menu":
+        return (
+          <CardList data={data} textFilter={textFilter} />
+        );
+      case "filter-menu":
+        return (
+          <CardList data={data} textFilter={textFilter} />
+        );
+      case "add-menu":
+        return <AddCard />;
+    }
+  };
+
   return (
     <div className={classes.desktop}>
-      {data
-        .filter((item) => {
-          if (textFilter === "") {
-            return true;
-          }
-          return (
-            item.title
-              .toLowerCase()
-              .includes(textFilter.toLowerCase()) ||
-            item.author
-              .toLowerCase()
-              .includes(textFilter.toLowerCase())
-          );
-        })
-        .map((item) => (
-          <Card
-            key={item.id}
-            content={item}
-            textFilter={textFilter}
-          />
-        ))}
-      {menuOpen ? (
-        <Menu
-          setMenuOpen={() => setMenuOpen(!menuOpen)}
-          setEditMenuOpen={() =>
-            setEditMenuOpen(!editMenuOpen)
-          }
-        />
-      ) : (
-        <FilterMenu
-          setMenuOpen={() => setMenuOpen(!menuOpen)}
-          textFilter={textFilter}
-          setTextFilter={setTextFilter}
-        />
-      )}
-      {editMenuOpen ? (
-        <EditCardMenu
-          setEditMenuOpen={() =>
-            setEditMenuOpen(!editMenuOpen)
-          }
-        />
-      ) : null}
+      {renderDesktopContent()}
+      {renderCurrentMenu()}
     </div>
   );
 }
