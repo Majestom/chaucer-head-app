@@ -6,7 +6,6 @@ import EditCardMenu from "../EditCardMenu/EditCardMenu";
 import CardList from "../CardList/CardList";
 import AddCard from "../AddCard/AddCard";
 import * as classes from "./Desktop.css";
-import EditCardMenu from "../EditCardMenu/EditCardMenu";
 
 const data = [
   {
