@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../Card/Card";
+import * as classes from "./CardList.css";
 
 type BookItem = {
   id: number;
@@ -16,7 +17,7 @@ export default function CardList({
   textFilter: string;
 }) {
   return (
-    <div>
+    <div className={classes.cardList}>
       {data
         .filter((item: BookItem) => {
           if (textFilter === "") {
