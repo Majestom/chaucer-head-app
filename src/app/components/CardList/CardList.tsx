@@ -7,6 +7,9 @@ type BookItem = {
   title: string;
   author: string;
   description: string;
+  price: string;
+  sold: boolean;
+  draft: boolean;
 };
 
 export default function CardList({

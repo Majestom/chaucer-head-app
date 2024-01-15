@@ -40,6 +40,14 @@ export const authorText = style({
   textAlign: "left",
 });
 
+export const priceText = style({
+  textAlign: "left",
+});
+
+export const soldText = style({});
+
+export const draftText = style({});
+
 export const descriptionText = style({
   font: "Roboto",
   fontSize: 12,

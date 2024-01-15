@@ -8,6 +8,9 @@ type CardContentType = {
   title: string;
   description?: string;
   author?: string;
+  price?: string;
+  sold?: boolean;
+  draft?: boolean;
 };
 
 export default function Card({
@@ -58,6 +61,21 @@ export default function Card({
           {content.author
             ? highlightText(content.author)
             : null}
+        </p>
+        <p className={classes.priceText}>
+          {content.price ? content.price : null}
+        </p>
+        <p>
+          {content.sold ? (
+            <span className={classes.soldText}>Sold</span>
+          ) : (
+            <span className={classes.soldText}>
+              For Sale
+            </span>
+          )}
+          {content.draft ? (
+            <span className={classes.draftText}>Draft</span>
+          ) : null}
         </p>
         {cardOpen ? (
           <p className={classes.descriptionText}>
