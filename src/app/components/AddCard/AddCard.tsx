@@ -8,6 +8,7 @@ export default function AddCard() {
       author: "",
       description: "",
       price: "",
+      onSale: false,
     },
     onSubmit: async ({ value }) => {
       // Do something with form data
@@ -88,6 +89,25 @@ export default function AddCard() {
                     onBlur={field.handleBlur}
                     onChange={(e) =>
                       field.handleChange(e.target.value)
+                    }
+                  />
+                </>
+              )}
+            </form.Field>
+            <form.Field name="onSale">
+              {(field) => (
+                <>
+                  <label htmlFor={field.name}>
+                    On Sale
+                  </label>
+                  <input
+                    className={classes.formField}
+                    name={field.name}
+                    type={"checkbox"}
+                    // value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={() =>
+                      field.handleChange(!field.state.value)
                     }
                   />
                 </>
