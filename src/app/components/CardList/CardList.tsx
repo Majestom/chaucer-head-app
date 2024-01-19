@@ -8,7 +8,7 @@ type BookItem = {
   author: string;
   description: string;
   price: string;
-  sold: boolean;
+  onSale: boolean;
   draft: boolean;
 };
 
