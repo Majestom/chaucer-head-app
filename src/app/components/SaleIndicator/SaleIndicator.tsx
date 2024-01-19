@@ -3,7 +3,7 @@ import * as classes from "./SaleIndicator.css";
 export function SaleIndicator({
   onSale,
 }: {
-  onSale: boolean;
+  onSale?: boolean;
 }) {
   return (
     <div

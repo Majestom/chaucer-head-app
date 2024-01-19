@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import * as classes from "./Card.css";
+import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
 
 type CardContentType = {
   id: number;
@@ -9,7 +10,7 @@ type CardContentType = {
   description?: string;
   author?: string;
   price?: string;
-  sold?: boolean;
+  onSale?: boolean;
   draft?: boolean;
 };
 
@@ -66,13 +67,7 @@ export default function Card({
           {content.price ? content.price : null}
         </p>
         <p>
-          {content.sold ? (
-            <span className={classes.soldText}>Sold</span>
-          ) : (
-            <span className={classes.soldText}>
-              For Sale
-            </span>
-          )}
+          <SaleIndicator onSale={content.onSale} />
           {content.draft ? (
             <span className={classes.draftText}>Draft</span>
           ) : null}
