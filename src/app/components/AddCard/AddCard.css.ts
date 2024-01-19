@@ -65,23 +65,3 @@ export const submitButton = style({
     boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.75)",
   },
 });
-
-export const onSaleMarker = style({
-  backgroundColor: "green",
-  borderRadius: 10,
-  padding: 5,
-  color: "white",
-  fontSize: 12,
-  fontWeight: "bold",
-  alignSelf: "flex-start",
-});
-
-export const offSaleMarker = style({
-  backgroundColor: "red",
-  borderRadius: 10,
-  padding: 5,
-  color: "white",
-  fontSize: 12,
-  fontWeight: "bold",
-  alignSelf: "flex-start",
-});

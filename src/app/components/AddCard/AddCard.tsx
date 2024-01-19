@@ -1,6 +1,7 @@
 import { useForm } from "@tanstack/react-form";
-import * as classes from "./AddCard.css";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
+import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
+import * as classes from "./AddCard.css";
 
 export default function AddCard() {
   const form = useForm({
@@ -103,15 +104,9 @@ export default function AddCard() {
                     setShowLeft={field.handleChange}
                     toggleLabel={"On Sale?"}
                   />
-                  {field.state.value === false ? (
-                    <div className={classes.onSaleMarker}>
-                      On Sale
-                    </div>
-                  ) : (
-                    <div className={classes.offSaleMarker}>
-                      Not On Sale
-                    </div>
-                  )}
+                  <SaleIndicator
+                    onSale={field.state.value}
+                  />
                 </>
               )}
             </form.Field>
