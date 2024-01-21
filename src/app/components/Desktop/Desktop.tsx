@@ -41,10 +41,11 @@ const data = [
 
 export default function Desktop() {
   const [textFilter, setTextFilter] = useState("");
+  const [showOffSale, setShowOffSale] = useState(true);
   const [currentMenu, setCurrentMenu] =
     useState("main-menu"); // main-menu, filter-menu, add-menu
 
-  const renderCurrentMenu = () => {
+  const renderCurrentMenu = (showOffSale: boolean) => {
     switch (currentMenu) {
       case "main-menu":
         return <Menu setCurrentMenu={setCurrentMenu} />;
@@ -54,6 +55,8 @@ export default function Desktop() {
             setCurrentMenu={setCurrentMenu}
             textFilter={textFilter}
             setTextFilter={setTextFilter}
+            showOffSale={showOffSale}
+            setShowOffSale={setShowOffSale}
           />
         );
       case "add-menu":
@@ -63,15 +66,23 @@ export default function Desktop() {
     }
   };
 
-  const renderDesktopContent = () => {
+  const renderDesktopContent = (showOffSale: boolean) => {
     switch (currentMenu) {
       case "main-menu":
         return (
-          <CardList data={data} textFilter={textFilter} />
+          <CardList
+            data={data}
+            textFilter={textFilter}
+            showOffSale={showOffSale}
+          />
         );
       case "filter-menu":
         return (
-          <CardList data={data} textFilter={textFilter} />
+          <CardList
+            data={data}
+            textFilter={textFilter}
+            showOffSale={showOffSale}
+          />
         );
       case "add-menu":
         return <AddCard />;
@@ -80,8 +91,8 @@ export default function Desktop() {
 
   return (
     <div className={classes.desktop}>
-      {renderDesktopContent()}
-      {renderCurrentMenu()}
+      {renderDesktopContent(showOffSale)}
+      {renderCurrentMenu(showOffSale)}
     </div>
   );
 }

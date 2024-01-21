@@ -15,9 +15,11 @@ type BookItem = {
 export default function CardList({
   data,
   textFilter,
+  showOffSale,
 }: {
   data: BookItem[];
   textFilter: string;
+  showOffSale: boolean;
 }) {
   return (
     <div className={classes.cardList}>
@@ -34,6 +36,15 @@ export default function CardList({
               .toLowerCase()
               .includes(textFilter.toLowerCase())
           );
+        })
+        .filter((item: BookItem) => {
+          if (
+            (item.onSale === false && showOffSale) ||
+            item.onSale === true
+          ) {
+            return true;
+          }
+          return false;
         })
         .map((item: BookItem) => (
           <Card

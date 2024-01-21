@@ -11,12 +11,16 @@ export default function FilterMenu({
   setCurrentMenu,
   textFilter,
   setTextFilter,
+  showOffSale,
+  setShowOffSale,
 }: {
   setCurrentMenu: Dispatch<SetStateAction<string>>;
   textFilter: string;
   setTextFilter: (text: string) => void;
+  showOffSale: boolean;
+  setShowOffSale: Dispatch<SetStateAction<boolean>>;
 }) {
-  const [showOffsale, setShowOffsale] = useState(true);
+  // const [showOffsale, setShowOffsale] = useState(true);
   const [showDrafts, setShowDrafts] = useState(true);
   return (
     <menu className={classes.menu}>
@@ -30,8 +34,8 @@ export default function FilterMenu({
       <div className={classes.controls}>
         <div className={classes.toggles}>
           <ToggleSwitch
-            showLeft={showOffsale}
-            setShowLeft={setShowOffsale}
+            showLeft={showOffSale}
+            setShowLeft={setShowOffSale}
             toggleLabel={"Show Offsale?"}
           />
           <ToggleSwitch
