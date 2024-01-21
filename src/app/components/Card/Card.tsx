@@ -66,12 +66,12 @@ export default function Card({
         <p className={classes.priceText}>
           {content.price ? content.price : null}
         </p>
-        <p>
+        <div>
           <SaleIndicator onSale={content.onSale} />
           {content.draft ? (
             <span className={classes.draftText}>Draft</span>
           ) : null}
-        </p>
+        </div>
         {cardOpen ? (
           <p className={classes.descriptionText}>
             {content.description}
