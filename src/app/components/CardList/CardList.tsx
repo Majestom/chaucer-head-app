@@ -16,10 +16,12 @@ export default function CardList({
   data,
   textFilter,
   showOffSale,
+  showDrafts,
 }: {
   data: BookItem[];
   textFilter: string;
   showOffSale: boolean;
+  showDrafts: boolean;
 }) {
   return (
     <div className={classes.cardList}>
@@ -45,6 +47,12 @@ export default function CardList({
             return true;
           }
           return false;
+        })
+        .filter((item: BookItem) => {
+          if (item.draft === true && !showDrafts) {
+            return false;
+          }
+          return true;
         })
         .map((item: BookItem) => (
           <Card

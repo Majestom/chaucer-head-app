@@ -16,7 +16,7 @@ const data = [
       "Hardback, 8vo blue cloth boards, gilt titles, first edition, First impression, , 215pp. plus index, Good +/NoWrapper. Front board has slight marking to bottom right-hand corner. Block edge rough-cut and aged. A few lightly penciled lines marking certain passages in the test, also a (very) few lightly pencilled notes throughout. Page 214 of the index has small ink stains and a very few pages have slight ink stains to edges. Book also has very slight lean. Catalogue: Local Topography. Keywords: Quyney, Quiney, Quinee, Quinie, Queeny, Queeney, Queney, Queny, Quene, Quiny, Quinny.",
     price: "£8",
     onSale: true,
-    draft: false,
+    draft: true,
   },
   {
     id: 2,
@@ -42,6 +42,7 @@ const data = [
 export default function Desktop() {
   const [textFilter, setTextFilter] = useState("");
   const [showOffSale, setShowOffSale] = useState(true);
+  const [showDrafts, setShowDrafts] = useState(true);
   const [currentMenu, setCurrentMenu] =
     useState("main-menu"); // main-menu, filter-menu, add-menu
 
@@ -57,6 +58,8 @@ export default function Desktop() {
             setTextFilter={setTextFilter}
             showOffSale={showOffSale}
             setShowOffSale={setShowOffSale}
+            showDrafts={showDrafts}
+            setShowDrafts={setShowDrafts}
           />
         );
       case "add-menu":
@@ -74,6 +77,7 @@ export default function Desktop() {
             data={data}
             textFilter={textFilter}
             showOffSale={showOffSale}
+            showDrafts={showDrafts}
           />
         );
       case "filter-menu":
@@ -82,6 +86,7 @@ export default function Desktop() {
             data={data}
             textFilter={textFilter}
             showOffSale={showOffSale}
+            showDrafts={showDrafts}
           />
         );
       case "add-menu":

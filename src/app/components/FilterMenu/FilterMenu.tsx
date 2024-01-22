@@ -13,15 +13,19 @@ export default function FilterMenu({
   setTextFilter,
   showOffSale,
   setShowOffSale,
+  showDrafts,
+  setShowDrafts,
 }: {
   setCurrentMenu: Dispatch<SetStateAction<string>>;
   textFilter: string;
   setTextFilter: (text: string) => void;
   showOffSale: boolean;
   setShowOffSale: Dispatch<SetStateAction<boolean>>;
+  showDrafts: boolean;
+  setShowDrafts: Dispatch<SetStateAction<boolean>>;
 }) {
   // const [showOffsale, setShowOffsale] = useState(true);
-  const [showDrafts, setShowDrafts] = useState(true);
+  // const [showDrafts, setShowDrafts] = useState(true);
   return (
     <menu className={classes.menu}>
       <input

@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import * as classes from "./Card.css";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
+import { DraftIndicator } from "../DraftIndicator/DraftIndicator";
+import * as classes from "./Card.css";
 
 type CardContentType = {
   id: number;
@@ -66,11 +67,9 @@ export default function Card({
         <p className={classes.priceText}>
           {content.price ? content.price : null}
         </p>
-        <div>
+        <div className={classes.statusIndicator}>
           <SaleIndicator onSale={content.onSale} />
-          {content.draft ? (
-            <span className={classes.draftText}>Draft</span>
-          ) : null}
+          <DraftIndicator draft={content.draft} />
         </div>
         {cardOpen ? (
           <p className={classes.descriptionText}>

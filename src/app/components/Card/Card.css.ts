@@ -59,3 +59,8 @@ export const descriptionText = style({
 export const filteredText = style({
   backgroundColor: "yellow",
 });
+
+export const statusIndicator = style({
+  display: "flex",
+  gap: 10,
+});
