@@ -10,21 +10,21 @@ export default function EditCardMenu({
   return (
     <menu className={classes.menu}>
       <Button
+        label={"Back"}
+        className={"backButton"}
+        icon={"/icons/back.svg"}
+        onClick={() => setCurrentMenu("main-menu")}
+      />
+      <Button
         label={"Menu"}
         className={"menuButton"}
         icon={"/icons/menu.svg"}
       />
       <Button
-        label={"Put On Sale"}
-        className={"addButton"}
-        icon={"/icons/add.svg"}
+        label={"Add Image"}
+        className={"imageButton"}
+        icon={"/icons/image.svg"}
         onClick={() => setCurrentMenu("add-menu")}
-      />
-      <Button
-        label={"Back"}
-        className={"backButton"}
-        icon={"/icons/back.svg"}
-        onClick={() => setCurrentMenu("main-menu")}
       />
     </menu>
   );
