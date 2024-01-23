@@ -45,23 +45,3 @@ export const buttonHolder = style({
   height: 144,
   padding: 10,
 });
-
-export const submitButton = style({
-  flex: 1,
-  padding: 10,
-  margin: 10,
-  backgroundColor: "#E71EE3",
-  border: "none",
-  borderRadius: 10,
-  cursor: "pointer",
-  fontSize: 20,
-  color: "white",
-  ":hover": {
-    opacity: 0.8,
-    boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.75)",
-  },
-  ":active": {
-    backgroundColor: "#7A6E4E",
-    boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.75)",
-  },
-});

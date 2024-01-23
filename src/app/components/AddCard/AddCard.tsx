@@ -2,6 +2,7 @@ import { useForm } from "@tanstack/react-form";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
 import * as classes from "./AddCard.css";
+import { Button } from "../Button/Button";
 
 export default function AddCard() {
   const form = useForm({
@@ -13,7 +14,7 @@ export default function AddCard() {
       onSale: false,
     },
     onSubmit: async ({ value }) => {
-      // Do something with form data
+      // Todo: do something with form data.
       console.log(value);
     },
   });
@@ -112,12 +113,14 @@ export default function AddCard() {
             </form.Field>
           </div>
           <div className={classes.buttonHolder}>
-            <button
-              className={classes.submitButton}
-              type="submit"
-            >
-              Send To Database
-            </button>
+            <Button
+              label={"Add book"}
+              className={"addButton"}
+              icon={"/icons/add.svg"}
+              onClick={
+                () => console.log("Send to database.") // Todo: wire this up to send to database.
+              }
+            />
           </div>
         </form>
       </form.Provider>
