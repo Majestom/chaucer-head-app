@@ -11,6 +11,7 @@
   "dependencies": {
     "@tanstack/react-form": "^0.13.1",
     "@vanilla-extract/css": "^1.14.0",
+    "@vercel/postgres": "^0.7.2",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
