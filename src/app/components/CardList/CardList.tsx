@@ -1,16 +1,7 @@
 import React from "react";
+import { BookItem } from "@/app/hooks/useFetchBooks";
 import Card from "../Card/Card";
 import * as classes from "./CardList.css";
-
-type BookItem = {
-  id: number;
-  title: string;
-  author: string;
-  description: string;
-  price: string;
-  onSale: boolean;
-  draft: boolean;
-};
 
 export default function CardList({
   data,
@@ -23,6 +14,7 @@ export default function CardList({
   showOffSale: boolean;
   showDrafts: boolean;
 }) {
+  console.log("data in CardList: ", data);
   return (
     <div className={classes.cardList}>
       {data
@@ -42,7 +34,8 @@ export default function CardList({
         .filter((item: BookItem) => {
           if (
             (item.onSale === false && showOffSale) ||
-            item.onSale === true
+            item.onSale === true ||
+            item.onSale === undefined // Todo: is this right?
           ) {
             return true;
           }
