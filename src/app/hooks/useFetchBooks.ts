@@ -19,10 +19,7 @@ export default function useFetchBooks() {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(
-        "process.env.LOCAL_URL: ",
-        process.env.LOCAL_URL
-      );
+      console.log("process: ", process);
       try {
         const response = await fetch(
           `https://chaucer-head-app.vercel.app/api/books`
