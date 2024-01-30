@@ -38,7 +38,5 @@ export default function useFetchBooks() {
     fetchData();
   }, []);
 
-  console.log("data in hook: ", data);
-
   return { data, loading, error };
 }
