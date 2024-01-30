@@ -14,7 +14,6 @@ export default function CardList({
   showOffSale: boolean;
   showDrafts: boolean;
 }) {
-  console.log("data in CardList: ", data);
   return (
     <div className={classes.cardList}>
       {data

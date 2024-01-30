@@ -49,8 +49,6 @@ export default function Desktop() {
 
   const { data = [], loading, error } = useFetchBooks();
 
-  console.log("data in Desktop: ", data);
-
   if (loading) {
     return <div>Loading...</div>;
   }

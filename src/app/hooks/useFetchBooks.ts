@@ -19,7 +19,6 @@ export default function useFetchBooks() {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("process: ", process);
       try {
         const response = await fetch(
           `https://chaucer-head-app.vercel.app/api/books`
