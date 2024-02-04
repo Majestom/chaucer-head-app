@@ -8,13 +8,14 @@ export async function POST(request: Request) {
   // const author = searchParams.get("author");
   console.log("request.json():", request.json());
   console.log("body:", request.body);
-  const { bookTitle, author } = await request.json();
+  const { title, author, description, onSale, price } =
+    await request.json();
 
   try {
-    if (!bookTitle || !author)
+    if (!title || !author)
       throw new Error("Title and author required.");
     const guid = uuidv4();
-    await sql`INSERT INTO books (Title, Author, Id) VALUES (${bookTitle}, ${author}, ${guid});`;
+    await sql`INSERT INTO books (Title, Author, Id, Description, Onsale, Draft, Coverimage) VALUES (${title}, ${author}, ${guid}, ${description}, ${true}, ${false}, ${"1.png"});`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
