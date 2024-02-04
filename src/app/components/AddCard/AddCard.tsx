@@ -1,8 +1,8 @@
+import Image from "next/image";
 import { useForm } from "@tanstack/react-form";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
 import * as classes from "./AddCard.css";
-import { Button } from "../Button/Button";
 
 export default function AddCard() {
   const form = useForm({
@@ -14,7 +14,17 @@ export default function AddCard() {
       onSale: false,
     },
     onSubmit: async ({ value }) => {
-      // Todo: do something with form data.
+      console.log("Form submitted!", value);
+      fetch(
+        "https://chaucer-head-app.vercel.app/api/add-book",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(value),
+        }
+      );
       console.log(value);
     },
   });
@@ -113,14 +123,18 @@ export default function AddCard() {
             </form.Field>
           </div>
           <div className={classes.buttonHolder}>
-            <Button
-              label={"Add book"}
-              className={"addButton"}
-              icon={"/icons/add.svg"}
-              onClick={
-                () => console.log("Send to database.") // Todo: wire this up to send to database.
-              }
-            />
+            <button
+              type="submit"
+              className={classes.button}
+            >
+              <Image
+                src={"/icons/add.svg"}
+                alt={"Add"}
+                width={50}
+                height={50}
+              />
+              Push To Submit
+            </button>
           </div>
         </form>
       </form.Provider>

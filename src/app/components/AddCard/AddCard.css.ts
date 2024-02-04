@@ -45,3 +45,23 @@ export const buttonHolder = style({
   height: 144,
   padding: 10,
 });
+
+export const button = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  flexGrow: 1,
+  border: "none",
+  borderRadius: 10,
+  padding: 10,
+  margin: 10,
+  cursor: "pointer",
+  background: "#46E71E",
+  ":hover": {
+    opacity: 0.8,
+  },
+  ":active": {
+    opacity: 0.6,
+  },
+});
