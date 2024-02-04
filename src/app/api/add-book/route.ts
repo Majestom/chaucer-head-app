@@ -2,10 +2,13 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const bookTitle = searchParams.get("title");
-  const author = searchParams.get("author");
+export async function POST(request: Request) {
+  // const { searchParams } = new URL(request.url);
+  // const bookTitle = searchParams.get("title");
+  // const author = searchParams.get("author");
+  console.log("request.json():", request.json());
+  console.log("body:", request.body);
+  const { bookTitle, author } = await request.json();
 
   try {
     if (!bookTitle || !author)
