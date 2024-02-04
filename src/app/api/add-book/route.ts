@@ -6,8 +6,8 @@ export async function POST(request: Request) {
   // const { searchParams } = new URL(request.url);
   // const bookTitle = searchParams.get("title");
   // const author = searchParams.get("author");
-  console.log("request.json():", request.json());
-  console.log("body:", request.body);
+  console.log("request.json():", await request.json());
+  console.log("body:", await request.body);
   const { title, author, description, onSale, price } =
     await request.json();
 
