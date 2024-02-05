@@ -19,7 +19,11 @@ const BookSchema = z.object({
   draft: z.boolean(),
 });
 
-const data = [
+const BookDataSchema = z.array(BookSchema);
+
+type BookDataType = z.infer<typeof BookDataSchema>;
+
+const data: BookDataType = [
   {
     id: "1",
     title: "Master Richard Quyny",
