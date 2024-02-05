@@ -1,6 +1,8 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
+// The following are here to set the cache-control headers, as
+// per: https://nextjs.org/docs/app/building-your-application/caching#segment-config-options
 // export const dynamic = "force-dynamic";
 // export const revalidate = 0;
 
