@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { z } from "zod";
 // import useFetchBooks from "@/app/hooks/useFetchBooks";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
@@ -7,6 +8,16 @@ import EditCardMenu from "../EditCardMenu/EditCardMenu";
 import CardList from "../CardList/CardList";
 import AddCard from "../AddCard/AddCard";
 import * as classes from "./Desktop.css";
+
+const BookSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  author: z.string(),
+  description: z.string(),
+  price: z.string(),
+  onSale: z.boolean(),
+  draft: z.boolean(),
+});
 
 const data = [
   {
