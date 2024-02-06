@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { colours } from "@/app/utils/vars";
 
 export const button = style({
   flexGrow: 1,
@@ -20,23 +21,23 @@ export const buttonLayout = style({
 });
 
 export const menuButton = style({
-  background: "#8E1EE7",
+  background: colours.vividPurple,
 });
 
 export const addButton = style({
-  background: "#46E71E",
+  background: colours.vividGreen,
 });
 
 export const filterButton = style({
-  background: "#E31EE7",
+  background: colours.vividPink,
 });
 
 export const backButton = style({
-  background: "#E78A1E",
+  background: colours.vividOrange,
 });
 
 export const imageButton = style({
-  background: "#E3E71E",
+  background: colours.vividYellow,
 });
 
 export const label = style({

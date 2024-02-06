@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { colours } from "@/app/utils/vars";
 
 export const card = style({
   background: "none",
@@ -11,8 +12,8 @@ export const card = style({
   margin: 20,
   borderRadius: 10,
   color: "black",
-  backgroundColor: "#E8D4A2",
-  boxShadow: "10px 10px 10px 0px rgba(0,0,0,0.75)",
+  backgroundColor: colours.dirtyCard,
+  boxShadow: `10px 10px 10px 0px ${colours.shadowBlack}`,
 });
 
 export const form = style({
@@ -57,7 +58,7 @@ export const button = style({
   padding: 10,
   margin: 10,
   cursor: "pointer",
-  background: "#46E71E",
+  background: colours.vividGreen,
   ":hover": {
     opacity: 0.8,
   },

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { colours } from "@/app/utils/vars";
 
 export const menu = style({
   position: "fixed",
@@ -11,20 +12,20 @@ export const menu = style({
   alignItems: "stretch",
   justifyContent: "center",
   padding: 10,
-  backgroundColor: "#97581F",
-  boxShadow: "0px 0px 10px 8px rgba(0,0,0,0.75)",
+  backgroundColor: colours.woodBrown,
+  boxShadow: `0px 0px 10px 8px ${colours.shadowBlack}`,
 });
 
 export const textInput = style({
   height: 40,
   padding: 10,
-  backgroundColor: "#E8D4A2",
-  color: "#000",
+  backgroundColor: colours.dirtyCard,
+  color: colours.black,
   borderRadius: 5,
-  border: "1px solid #000",
+  border: `1px solid ${colours.black}`,
   margin: 10,
   fontSize: 16,
-  boxShadow: "inset 0px 0px 4px rgba(0,0,0,1)",
+  boxShadow: `inset 0px 0px 4px ${colours.anotherBlack}`,
 });
 
 export const controls = style({

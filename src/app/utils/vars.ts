@@ -1,0 +1,16 @@
+export const colours = {
+  baizeGreen: "#085E10",
+  woodBrown: "#97581F",
+  sliderBrown: "#6F3E11",
+  dirtyCard: "#E8D4A2",
+  dirtierCard: "#AB9A6F",
+  vividGreen: "#46E71E",
+  shadowBlack: "rgba(0,0,0,0.75)",
+  anotherBlack: rgba(0, 0, 0, 1),
+  vividPurple: "#8E1EE7",
+  vividPink: "#E31EE7",
+  vividOrange: "#E78A1E",
+  vividYellow: "#E3E71E",
+  black: "#000",
+  white: "#FFF",
+};

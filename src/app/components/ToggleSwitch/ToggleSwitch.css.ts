@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { colours } from "@/app/utils/vars";
 
 export const toggleAndLabel = style({
   display: "flex",
@@ -33,9 +34,9 @@ const sliderRound = style({
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: "#6F3E11",
+  backgroundColor: colours.sliderBrown,
   borderRadius: 34,
-  boxShadow: "inset 0px 0px 8px rgba(0,0,0,0.75)",
+  boxShadow: `inset 0px 0px 8px ${colours.anotherBlack}`,
 });
 
 export const sliderOpen = style([
@@ -48,10 +49,10 @@ export const sliderOpen = style([
       width: 26,
       left: 4,
       bottom: 5,
-      backgroundColor: "white",
+      backgroundColor: colours.white,
       transition: ".4s",
       borderRadius: 34,
-      boxShadow: "inset 0px 0px 4px rgba(0,0,0,0.75)",
+      boxShadow: `inset 0px 0px 4px ${colours.anotherBlack}`,
     },
   },
 ]);
@@ -69,7 +70,7 @@ export const sliderClosed = style([
       backgroundColor: "white",
       transition: ".4s",
       borderRadius: 34,
-      boxShadow: "inset 0px 0px 4px rgba(0,0,0,0.75)",
+      boxShadow: `inset 0px 0px 4px ${colours.anotherBlack}`,
     },
   },
 ]);

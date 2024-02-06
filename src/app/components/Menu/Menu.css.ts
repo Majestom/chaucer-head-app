@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { colours } from "@/app/utils/vars";
 
 export const menu = style({
   position: "fixed",
@@ -9,6 +10,6 @@ export const menu = style({
   display: "flex",
   flexDirection: "row",
   padding: 10,
-  backgroundColor: "#97581F",
-  boxShadow: "0px 0px 10px 8px rgba(0,0,0,0.75)",
+  backgroundColor: colours.woodBrown,
+  boxShadow: `0px 0px 10px 8px ${colours.shadowBlack}`,
 });
