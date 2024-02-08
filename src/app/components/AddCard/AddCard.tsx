@@ -112,7 +112,9 @@ export default function AddCard() {
                 <>
                   <ToggleSwitch
                     showLeft={field.state.value}
-                    setShowLeft={field.handleChange}
+                    setShowLeft={(e) =>
+                      field.handleChange(e.valueOf())
+                    }
                     toggleLabel={"On Sale?"}
                   />
                   <SaleIndicator

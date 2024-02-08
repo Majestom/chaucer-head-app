@@ -15,6 +15,7 @@ export function ToggleSwitch({
       <button
         className={classes.toggleSwitch}
         onClick={() => setShowLeft(!showLeft)}
+        type="button"
       >
         <span
           className={
