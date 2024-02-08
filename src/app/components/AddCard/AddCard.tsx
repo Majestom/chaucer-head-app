@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { zodValidator } from "@tanstack/zod-form-adapter";
+import { z } from "zod";
 import { useForm } from "@tanstack/react-form";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
@@ -10,7 +12,7 @@ export default function AddCard() {
       title: "",
       author: "",
       description: "",
-      price: "",
+      price: 0,
       onSale: false,
     },
     onSubmit: async ({ value }) => {
@@ -91,7 +93,13 @@ export default function AddCard() {
                 </>
               )}
             </form.Field>
-            <form.Field name="price">
+            <form.Field
+              name="price"
+              validatorAdapter={zodValidator}
+              validators={{
+                onChange: z.number(),
+              }}
+            >
               {(field) => (
                 <>
                   <label htmlFor={field.name}>Price</label>
@@ -101,7 +109,9 @@ export default function AddCard() {
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) =>
-                      field.handleChange(e.target.value)
+                      field.handleChange(
+                        Number(e.target.value)
+                      )
                     }
                   />
                 </>
