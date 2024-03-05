@@ -21,7 +21,7 @@ export default function useFetchBooks() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://chaucer-head-app.vercel.app/api/books`
+          `https://localhost:3000/api/books-new`
         );
         if (!response.ok) {
           throw new Error("Error fetching books");
