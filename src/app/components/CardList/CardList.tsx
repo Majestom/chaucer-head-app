@@ -1,5 +1,5 @@
 import React from "react";
-import { BookItem } from "@/app/hooks/useFetchBooks";
+import { BookType } from "@/app/types/types";
 import Card from "../Card/Card";
 import * as classes from "./CardList.css";
 
@@ -9,7 +9,7 @@ export default function CardList({
   showOffSale,
   showDrafts,
 }: {
-  data: BookItem[];
+  data: BookType[];
   textFilter: string;
   showOffSale: boolean;
   showDrafts: boolean;
@@ -17,7 +17,7 @@ export default function CardList({
   return (
     <div className={classes.cardList}>
       {data
-        .filter((item: BookItem) => {
+        .filter((item: BookType) => {
           if (textFilter === "") {
             return true;
           }
@@ -30,7 +30,7 @@ export default function CardList({
               .includes(textFilter.toLowerCase())
           );
         })
-        .filter((item: BookItem) => {
+        .filter((item: BookType) => {
           if (
             (item.onSale === false && showOffSale) ||
             item.onSale === true ||
@@ -40,13 +40,13 @@ export default function CardList({
           }
           return false;
         })
-        .filter((item: BookItem) => {
+        .filter((item: BookType) => {
           if (item.draft === true && !showDrafts) {
             return false;
           }
           return true;
         })
-        .map((item: BookItem) => (
+        .map((item: BookType) => (
           <Card
             key={item.id}
             content={item}
