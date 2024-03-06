@@ -1,33 +1,27 @@
 import { useState, useEffect } from "react";
-
-export type BookItem = {
-  id: number;
-  title: string;
-  author: string;
-  price: string;
-  onSale: boolean;
-  draft: boolean;
-  description?: string;
-  coverImage?: string;
-  publisher?: string;
-};
+import {
+  BookDataSchema,
+  BookDataType,
+} from "@/app/types/types";
 
 export default function useFetchBooks() {
-  const [data, setData] = useState<BookItem[]>([]);
+  const [rowData, setRowData] = useState<BookDataType[]>(
+    []
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://localhost:3000/api/books-new`
+        const res = await fetch(
+          `http://localhost:3000/api/books-new`
         );
-        if (!response.ok) {
+        if (!res.ok) {
           throw new Error("Error fetching books");
         }
-        const data = await response.json();
-        setData(data.result.rows);
+        const data = await res.json();
+        setRowData(data.rows);
         setLoading(false);
       } catch (error: any) {
         setError(error);
@@ -38,5 +32,11 @@ export default function useFetchBooks() {
     fetchData();
   }, []);
 
-  return { data, loading, error };
+  const response = BookDataSchema.safeParse(rowData);
+
+  if (response.success !== true) {
+    console.log("response.error: ", response.error);
+  } else {
+    return { error, data: response.data, loading };
+  }
 }
