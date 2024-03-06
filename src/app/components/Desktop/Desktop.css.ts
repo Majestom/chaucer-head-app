@@ -9,3 +9,10 @@ export const desktop = style({
   display: "flex",
   flexDirection: "column",
 });
+
+export const transitionalState = style({
+  position: "fixed",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+});

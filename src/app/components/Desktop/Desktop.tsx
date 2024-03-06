@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { z } from "zod";
-// import useFetchBooks from "@/app/hooks/useFetchBooks";
+import useFetchBooks from "@/app/hooks/useFetchBooks";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
 import EditCardMenu from "../EditCardMenu/EditCardMenu";
@@ -16,15 +15,25 @@ export default function Desktop() {
   const [currentMenu, setCurrentMenu] =
     useState("main-menu"); // main-menu, filter-menu, add-menu
 
-  // const { data = [], loading, error } = useFetchBooks();
+  const response = useFetchBooks();
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (!response || response.loading) {
+    return (
+      <div className={classes.transitionalState}>
+        Loading...
+      </div>
+    );
+  }
 
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
+  if (response.error) {
+    return (
+      <div className={classes.transitionalState}>
+        Error {response.error}
+      </div>
+    );
+  }
+
+  const { data } = response;
 
   const renderCurrentMenu = (showOffSale: boolean) => {
     switch (currentMenu) {
