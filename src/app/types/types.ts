@@ -16,3 +16,5 @@ export const BookSchema = z.object({
 export const BookDataSchema = z.array(BookSchema);
 
 export type BookDataType = z.infer<typeof BookDataSchema>;
+
+export type BookType = z.infer<typeof BookSchema>;
