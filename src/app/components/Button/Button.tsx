@@ -22,6 +22,7 @@ export function Button({
     >
       <div className={classes.buttonLayout}>
         <Image
+          priority={true}
           src={icon}
           alt={label}
           width={50}

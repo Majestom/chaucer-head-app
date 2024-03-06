@@ -50,6 +50,7 @@ export default function Card({
       onClick={() => setCardOpen(!cardOpen)}
     >
       <Image
+        priority={true}
         src={`/images/${content.id}.png`}
         alt={content.title}
         width={100}

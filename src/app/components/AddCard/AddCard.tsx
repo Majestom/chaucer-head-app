@@ -94,6 +94,7 @@ export default function AddCard() {
         <div className={classes.buttonHolder}>
           <button type="submit" className={classes.button}>
             <Image
+              priority={true}
               src={"/icons/add.svg"}
               alt={"Add"}
               width={50}
