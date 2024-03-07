@@ -1,28 +1,25 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { imageArrayToBlobUrl } from "@/app/utils/helper";
+import { BookType } from "@/app/types/types";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
 import { DraftIndicator } from "../DraftIndicator/DraftIndicator";
 import * as classes from "./Card.css";
-
-type CardContentType = {
-  id: number;
-  title: string;
-  description?: string;
-  author?: string;
-  price?: string;
-  onSale?: boolean;
-  draft?: boolean;
-};
 
 export default function Card({
   content,
   textFilter,
 }: {
-  content: CardContentType;
+  content: BookType;
   textFilter: string;
 }) {
   const [cardOpen, setCardOpen] = useState(false);
+
+  if (!content.image?.data) {
+    return;
+  }
+  const blobUrl = imageArrayToBlobUrl(content.image?.data);
 
   const highlightText = (text: string) => {
     const parts = text.split(
@@ -49,13 +46,15 @@ export default function Card({
       className={classes.card}
       onClick={() => setCardOpen(!cardOpen)}
     >
-      <Image
-        priority={true}
-        src={`/images/${content.id}.png`}
-        alt={content.title}
-        width={100}
-        height={100}
-      />
+      {blobUrl ? (
+        <Image
+          src={blobUrl}
+          alt={`${content.title}`}
+          width={100}
+          height={100}
+          unoptimized={true}
+        />
+      ) : null}
       <span className={classes.bookInfo}>
         <h2 className={classes.titleText}>
           {highlightText(content.title)}
