@@ -1,4 +1,3 @@
-import React from "react";
 import { BookType } from "@/app/types/types";
 import Card from "../Card/Card";
 import * as classes from "./CardList.css";
