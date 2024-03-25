@@ -4,27 +4,31 @@ import { Controller, useForm } from "react-hook-form";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
 import * as classes from "./AddCard.css";
+import useAddBook from "@/app/hooks/useAddBook";
+import { BookDataType, BookType } from "@/app/types/types";
 
-const bookSchema = z.object({
-  title: z.string(),
-  author: z.string(),
-  description: z.string(),
-  price: z.number().multipleOf(0.01),
-  onSale: z.boolean(),
-});
+// const bookSchema = z.object({
+//   title: z.string(),
+//   author: z.string(),
+//   description: z.string(),
+//   price: z.number().multipleOf(0.01),
+//   onSale: z.boolean(),
+// });
 
-type Book = z.infer<typeof bookSchema>;
+// type Book = z.infer<typeof bookSchema>;
 
 export default function AddCard() {
+  const postTheBook = useAddBook();
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
-  } = useForm<Book>();
+  } = useForm<BookType>();
   console.log("errors: ", errors);
-  const onSubmit = (data: Book) => {
+  const onSubmit = (data: BookType) => {
     console.log(data);
+    postTheBook(data);
   };
   return (
     <div className={classes.card}>
