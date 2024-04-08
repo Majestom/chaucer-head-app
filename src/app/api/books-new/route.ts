@@ -16,8 +16,48 @@ export async function GET() {
           );
         } else {
           db.close();
+          const result = (
+            rows as {
+              id: number;
+              title: string;
+              author: string;
+              description: string;
+              price: string;
+              onSale: string;
+              image: string;
+            }[]
+          ).map(
+            ({
+              id,
+              title,
+              author,
+              description,
+              price,
+              onSale,
+              image,
+            }) => {
+              console.log({
+                id,
+                title,
+                author,
+                description,
+                price: price,
+                onSale: Boolean(onSale),
+                image,
+              });
+              return {
+                id,
+                title,
+                author,
+                description,
+                price: price,
+                onSale: Boolean(onSale),
+                image,
+              };
+            }
+          );
           resolve(
-            NextResponse.json({ rows }, { status: 200 })
+            NextResponse.json({ result }, { status: 200 })
           );
         }
       });
