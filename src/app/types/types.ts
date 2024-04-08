@@ -5,10 +5,13 @@ export const BookSchema = z.object({
   title: z.string(),
   author: z.string(),
   description: z.string(),
-  price: z.string().optional(),
+  price: z.string(),
   image: z
-    .object({ data: z.number().array(), type: z.string() })
-    .optional(),
+    .object({
+      data: z.number().array().optional(),
+      type: z.string().optional(),
+    })
+    .default({ data: [], type: "" }),
   onSale: z.boolean().optional(),
   draft: z.boolean().optional(),
 });
