@@ -21,7 +21,7 @@ export default function useFetchBooks() {
           throw new Error("Error fetching books");
         }
         const data = await res.json();
-        setRowData(data.rows);
+        setRowData(data.result);
         setLoading(false);
       } catch (error: any) {
         setError(error);
@@ -36,6 +36,7 @@ export default function useFetchBooks() {
 
   if (response.success !== true) {
     console.log("response.error: ", response.error);
+    return { error: response.error };
   } else {
     return { error, data: response.data, loading };
   }
