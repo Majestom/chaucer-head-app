@@ -1,12 +1,6 @@
-import {
-  // BookDataSchema,
-  // BookDataType,
-  BookType,
-} from "@/app/types/types";
+import { BookType } from "@/app/types/types";
 
 export default function useAddBook() {
-  // const payload = BookDataSchema.safeParse(bookData);
-
   const postTheBook = (bookData: BookType) =>
     fetch("/api/add-book", {
       method: "POST",
