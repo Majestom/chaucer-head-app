@@ -28,7 +28,7 @@ export default function Desktop() {
   if (response.error) {
     return (
       <div className={classes.transitionalState}>
-        Error {response.error}
+        Error {response.error.message}
       </div>
     );
   }
