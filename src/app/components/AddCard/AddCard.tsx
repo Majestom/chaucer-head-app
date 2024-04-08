@@ -1,21 +1,10 @@
 import Image from "next/image";
-import { z } from "zod";
 import { Controller, useForm } from "react-hook-form";
+import useAddBook from "@/app/hooks/useAddBook";
+import { BookType } from "@/app/types/types";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
 import * as classes from "./AddCard.css";
-import useAddBook from "@/app/hooks/useAddBook";
-import { BookDataType, BookType } from "@/app/types/types";
-
-// const bookSchema = z.object({
-//   title: z.string(),
-//   author: z.string(),
-//   description: z.string(),
-//   price: z.number().multipleOf(0.01),
-//   onSale: z.boolean(),
-// });
-
-// type Book = z.infer<typeof bookSchema>;
 
 export default function AddCard() {
   const postTheBook = useAddBook();
@@ -81,7 +70,7 @@ export default function AddCard() {
             name="onSale"
             render={({ field }) => (
               <ToggleSwitch
-                showLeft={field.value}
+                showLeft={field.value ? field.value : false}
                 setShowLeft={field.onChange}
                 toggleLabel={"On Sale?"}
               />
