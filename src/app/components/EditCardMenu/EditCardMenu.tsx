@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "../Button/Button";
 import * as classes from "./EditCardMenu.css";
+import ImagePicker from "../ImagePicker/ImagePicker";
 
 export default function EditCardMenu({
   setCurrentMenu,
@@ -20,12 +21,7 @@ export default function EditCardMenu({
         className={"menuButton"}
         icon={"/icons/menu.svg"}
       />
-      <Button
-        label={"Add Image"}
-        className={"imageButton"}
-        icon={"/icons/image.svg"}
-        onClick={() => setCurrentMenu("add-menu")}
-      />
+      <ImagePicker />
     </menu>
   );
 }

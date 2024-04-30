@@ -7,6 +7,7 @@ import EditCardMenu from "../EditCardMenu/EditCardMenu";
 import CardList from "../CardList/CardList";
 import AddCard from "../AddCard/AddCard";
 import * as classes from "./Desktop.css";
+import ImagePicker from "../ImagePicker/ImagePicker";
 
 export default function Desktop() {
   const [textFilter, setTextFilter] = useState("");
