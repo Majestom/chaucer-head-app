@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { ImageContextProvider } from "@/app/contexts/ImageContext";
 import useFetchBooks from "@/app/hooks/useFetchBooks";
 import Menu from "../Menu/Menu";
 import FilterMenu from "../FilterMenu/FilterMenu";
@@ -7,7 +8,6 @@ import EditCardMenu from "../EditCardMenu/EditCardMenu";
 import CardList from "../CardList/CardList";
 import AddCard from "../AddCard/AddCard";
 import * as classes from "./Desktop.css";
-import ImagePicker from "../ImagePicker/ImagePicker";
 
 export default function Desktop() {
   const [textFilter, setTextFilter] = useState("");
@@ -85,9 +85,11 @@ export default function Desktop() {
   };
 
   return (
-    <div className={classes.desktop}>
-      {renderDesktopContent(showOffSale)}
-      {renderCurrentMenu(showOffSale)}
-    </div>
+    <ImageContextProvider>
+      <div className={classes.desktop}>
+        {renderDesktopContent(showOffSale)}
+        {renderCurrentMenu(showOffSale)}
+      </div>
+    </ImageContextProvider>
   );
 }

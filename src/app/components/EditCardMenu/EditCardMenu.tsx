@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "../Button/Button";
+import { ImagePicker } from "../ImagePicker/ImagePicker";
 import * as classes from "./EditCardMenu.css";
-import ImagePicker from "../ImagePicker/ImagePicker";
 
 export default function EditCardMenu({
   setCurrentMenu,

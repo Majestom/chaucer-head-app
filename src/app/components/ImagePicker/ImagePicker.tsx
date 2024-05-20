@@ -1,3 +1,4 @@
+import { useContext, useEffect } from "react";
 import { useFilePicker } from "use-file-picker";
 import {
   FileAmountLimitValidator,
@@ -5,9 +6,11 @@ import {
   FileSizeValidator,
   ImageDimensionsValidator,
 } from "use-file-picker/validators";
+import { ImageContext } from "@/app/contexts/ImageContext";
+import { transformImageFile } from "@/app/utils/helper";
 import { Button } from "../Button/Button";
 
-export default function ImagePicker() {
+export function ImagePicker() {
   const { openFilePicker, filesContent, loading, errors } =
     useFilePicker({
       readAs: "DataURL",
@@ -20,25 +23,36 @@ export default function ImagePicker() {
           maxFileSize: 50 * 1024 * 1024 /* 50 MB */,
         }),
         new ImageDimensionsValidator({
-          maxHeight: 900, // in pixels
-          maxWidth: 1600,
-          minHeight: 600,
-          minWidth: 768,
+          maxHeight: 9000, // in pixels
+          maxWidth: 16000,
+          minHeight: 10,
+          minWidth: 18,
         }),
       ],
     });
+
+  const [image, setImage] = useContext(ImageContext);
+
+  useEffect(() => {
+    if (filesContent.length === 0) return;
+    const transformedContent = transformImageFile(
+      filesContent[0]
+    );
+    setImage(() => transformedContent);
+  }, [setImage, filesContent]);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (errors.length) {
+    console.log("Error: ", errors);
     return <div>Error...</div>;
   }
 
   return (
     <Button
-      label="Select files"
+      label="Upload image"
       className="imageButton"
       icon="/icons/image.svg"
       onClick={() => openFilePicker()}
