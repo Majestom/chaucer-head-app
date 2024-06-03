@@ -1,6 +1,8 @@
+import { useContext, useEffect } from "react";
 import Image from "next/image";
 import { Controller, useForm } from "react-hook-form";
 import useAddBook from "@/app/hooks/useAddBook";
+import { ImageContext } from "@/app/contexts/ImageContext";
 import { BookType } from "@/app/types/types";
 import { ToggleSwitch } from "../ToggleSwitch/ToggleSwitch";
 import { SaleIndicator } from "../SaleIndicator/SaleIndicator";
@@ -13,12 +15,19 @@ export default function AddCard() {
     handleSubmit,
     formState: { errors },
     control,
+    setValue,
   } = useForm<BookType>();
-  console.log("errors: ", errors);
+  const image = useContext(ImageContext)[0];
+
+  useEffect(() => {
+    if (!image) return;
+    setValue("image", image);
+  }, [image, setValue]);
+
   const onSubmit = (data: BookType) => {
-    console.log(data);
     postTheBook(data);
   };
+
   return (
     <div className={classes.card}>
       <form
@@ -65,6 +74,8 @@ export default function AddCard() {
             className={classes.formField}
             name={"price"}
           />
+          <input type="hidden" {...register("image")} />
+
           <Controller
             control={control}
             name="onSale"
