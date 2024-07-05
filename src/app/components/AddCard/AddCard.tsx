@@ -181,34 +181,59 @@ export default function AddCard() {
       fieldData.error
     );
   });
+
   return (
     <>
-      {fields.map((field) => (
-        <div
-          key={field.name}
-          className={classes.inputHolder}
-        >
-          <label htmlFor={field.name}>{field.label}</label>
-          <input
-            {...register(field.name, {
-              required: `${field.label} is required.`,
-            })}
-            placeholder={field.placeholder}
-            className={classes.formField}
-            name={field.name}
-          />
-          {errors[field.name as keyof typeof errors] && (
-            <div className={classes.inputHolder}>
-              <p>
-                {
-                  errors[field.name as keyof typeof errors]
-                    ?.message
-                }
-              </p>
-            </div>
-          )}
+      <form
+        className={classes.form}
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {fields.map(
+          ({ type, name, label, placeholder }) => {
+            if (type !== "hidden") {
+              return (
+                <div
+                  key={name}
+                  className={classes.inputHolder}
+                >
+                  <label htmlFor={name}>{label}</label>
+                  <input
+                    {...register(name, {
+                      required: `${label} is required.`,
+                    })}
+                    placeholder={placeholder}
+                    className={classes.formField}
+                    name={name}
+                  />
+                  {errors[name as keyof typeof errors] && (
+                    <div className={classes.inputHolder}>
+                      <p>
+                        {
+                          errors[
+                            name as keyof typeof errors
+                          ]?.message
+                        }
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+          }
+        )}
+        <div className={classes.buttonHolder}>
+          <button type="submit" className={classes.button}>
+            <Image
+              priority={true}
+              src={"/icons/add.svg"}
+              alt={"Add"}
+              width={50}
+              height={50}
+            />
+            Push To Submit
+          </button>
         </div>
-      ))}
+      </form>
     </>
 
     // <div className={classes.card}>
